@@ -44,6 +44,7 @@ type Config struct {
 	tmpServiceName   string
 	tmpContainerName string
 	userImageName    string
+        usePrivateIp     bool   `mapstructure:"use_private_ip"`
 
 	Comm communicator.Config `mapstructure:",squash"`
 
