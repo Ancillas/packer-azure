@@ -116,6 +116,7 @@ func (s *StepPollStatus) Run(state multistep.StateBag) multistep.StepAction {
 			}
 			ip = endpoints[0].Vip
                 }
+                log.Println("SSH IP = " + ip)
                 
                 state.Put(constants.SSHHost, ip)
 		ui.Message("VM Endpoint: " + ip)

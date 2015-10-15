@@ -68,6 +68,7 @@ func newConfig(raws ...interface{}) (*Config, []string, error) {
 
 	// Defaults
 	log.Println(fmt.Sprintf("%s: %v", "PackerUserVars", c.PackerConfig.PackerUserVars))
+        log.Println(fmt.Sprintf("Value of use_private_ip: %t", c.usePrivateIp))
 
 	if c.StorageContainer == "" {
 		c.StorageContainer = "vhds"
