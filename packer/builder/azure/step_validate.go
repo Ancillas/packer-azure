@@ -38,7 +38,7 @@ func (*StepValidate) Run(state multistep.StateBag) multistep.StepAction {
 		return multistep.ActionHalt
 	}
 	ui.Message(fmt.Sprintf("Destination VHD: %s", destinationVhd))
-	ui.Message(fmt.Sprintf("Value of use_private_ip: %t", config.usePrivateIp))
+	ui.Message(fmt.Sprintf("Use private IP: %t", config.SSHPrivateIp))
 
 	if err := func() error {
 		if config.RemoteSourceImageLink != "" {

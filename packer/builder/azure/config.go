@@ -44,7 +44,7 @@ type Config struct {
 	tmpServiceName   string
 	tmpContainerName string
 	userImageName    string
-        usePrivateIp     bool   `mapstructure:"use_private_ip"`
+        SSHPrivateIp     bool   `mapstructure:"ssh_private_ip"`
 
 	Comm communicator.Config `mapstructure:",squash"`
 
@@ -68,7 +68,6 @@ func newConfig(raws ...interface{}) (*Config, []string, error) {
 
 	// Defaults
 	log.Println(fmt.Sprintf("%s: %v", "PackerUserVars", c.PackerConfig.PackerUserVars))
-        log.Println(fmt.Sprintf("Value of use_private_ip: %t", c.usePrivateIp))
 
 	if c.StorageContainer == "" {
 		c.StorageContainer = "vhds"

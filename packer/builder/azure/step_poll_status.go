@@ -103,7 +103,7 @@ func (s *StepPollStatus) Run(state multistep.StateBag) multistep.StepAction {
 
 	if s.OSType == constants.Target_Linux {
                 var ip string
-                if config.usePrivateIp {
+                if config.SSHPrivateIp {
                         ip = deployment.RoleInstanceList[0].IPAddress
                         state.Put(constants.SSHHost, ip)
                 } else {
@@ -116,8 +116,6 @@ func (s *StepPollStatus) Run(state multistep.StateBag) multistep.StepAction {
 			}
 			ip = endpoints[0].Vip
                 }
-                log.Println("SSH IP = " + ip)
-                
                 state.Put(constants.SSHHost, ip)
 		ui.Message("VM Endpoint: " + ip)
 	}
